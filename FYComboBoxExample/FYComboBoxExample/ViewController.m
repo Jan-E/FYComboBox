@@ -19,7 +19,6 @@
     self.colors = @[@"Red", @"Orange", @"Green", @"Blue", @"Yellow", @"Black", @"White", @"Gray"];
     self.colorsComboBox.maxRows = self.colors.count;
     
-    self.languagesComboBox.cellHeight = 40.f;
     self.languagesComboBox.layer.borderWidth = 0.5f;
     self.languagesComboBox.layer.borderColor = [UIColor colorWithWhite:0.5f alpha:0.5f].CGColor;
     self.languagesComboBox.layer.cornerRadius = 5.0f;
@@ -28,7 +27,6 @@
     self.colorsComboBox.layer.borderColor = [UIColor blackColor].CGColor;
     self.colorsComboBox.layer.cornerRadius = 15.f;
     self.colorsComboBox.clipsToBounds = YES;
-    self.colorsComboBox.cellHeight = 60.f;
 }
 
 #pragma mark FYComboBoxDelegate
@@ -53,6 +51,17 @@
     }
     
     return 0;
+}
+
+- (CGFloat)comboBox:(FYComboBox *)comboBox heightForRow:(NSInteger)row
+{
+    if (comboBox == self.languagesComboBox) {
+        return 40.f;
+    } else if (comboBox == self.colorsComboBox) {
+        return 45.f;
+    }
+    
+    return 50.f;
 }
 
 - (void)comboBox:(FYComboBox *)comboBox didSelectRow:(NSInteger)row
