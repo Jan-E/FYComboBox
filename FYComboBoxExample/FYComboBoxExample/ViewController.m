@@ -30,6 +30,7 @@
 - (NSInteger)comboBoxNumberOfRows:(FYComboBox *)comboBox
 {
     if (comboBox == self.languagesComboBox) {
+        self.languagesComboBox.cellHeight = 40.0;
         self.languagesComboBox.maxRows = self.languages.count;
         return self.languages.count;
     } else if (comboBox == self.colorsComboBox) {
