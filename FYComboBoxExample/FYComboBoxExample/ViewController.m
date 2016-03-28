@@ -20,9 +20,9 @@
     self.colorsComboBox.maxRows = self.colors.count;
     
     self.languagesComboBox.cellHeight = 40.f;
-    [[self.languagesComboBox layer] setBorderColor: [UIColor colorWithWhite:0.5f alpha:0.7f].CGColor];
-    [[self.languagesComboBox layer] setCornerRadius:5.0f];
-    [[self.languagesComboBox layer] setBorderWidth:0.5f];
+    self.languagesComboBox.layer.borderWidth = 0.5f;
+    self.languagesComboBox.layer.borderColor = [UIColor colorWithWhite:0.5f alpha:0.5f].CGColor;
+    self.languagesComboBox.layer.cornerRadius = 5.0f;
     
     self.colorsComboBox.layer.borderWidth = 1.f;
     self.colorsComboBox.layer.borderColor = [UIColor blackColor].CGColor;
