@@ -14,15 +14,21 @@
     [super viewDidLoad];
     
     self.languages = @[@"Objective-C", @"Swift", @"Python", @"C++", @"C"];
-    self.colors = @[@"Red", @"Orange", @"Green", @"Blue", @"Yellow", @"Black", @"White", @"Gray"];
-    
-    self.languagesComboBox.layer.borderWidth = 1.f;
-    self.languagesComboBox.layer.cornerRadius = 15.f;
+    self.languagesComboBox.maxRows = self.languages.count;
 
+    self.colors = @[@"Red", @"Orange", @"Green", @"Blue", @"Yellow", @"Black", @"White", @"Gray"];
+    self.colorsComboBox.maxRows = self.colors.count;
+    
+    self.languagesComboBox.cellHeight = 40.f;
+    [[self.languagesComboBox layer] setBorderColor: [UIColor colorWithWhite:0.5f alpha:0.7f].CGColor];
+    [[self.languagesComboBox layer] setCornerRadius:5.0f];
+    [[self.languagesComboBox layer] setBorderWidth:0.5f];
+    
     self.colorsComboBox.layer.borderWidth = 1.f;
     self.colorsComboBox.layer.borderColor = [UIColor blackColor].CGColor;
     self.colorsComboBox.layer.cornerRadius = 15.f;
     self.colorsComboBox.clipsToBounds = YES;
+    self.colorsComboBox.cellHeight = 60.f;
 }
 
 #pragma mark FYComboBoxDelegate
@@ -30,11 +36,8 @@
 - (NSInteger)comboBoxNumberOfRows:(FYComboBox *)comboBox
 {
     if (comboBox == self.languagesComboBox) {
-        self.languagesComboBox.cellHeight = 40.0;
-        self.languagesComboBox.maxRows = self.languages.count;
         return self.languages.count;
     } else if (comboBox == self.colorsComboBox) {
-        self.colorsComboBox.maxRows = self.colors.count;
         return self.colors.count;
     }
     
