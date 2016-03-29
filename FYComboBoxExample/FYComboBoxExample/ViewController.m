@@ -19,13 +19,15 @@
     self.colors = @[@"Red", @"Orange", @"Green", @"Blue", @"Yellow", @"Black", @"White", @"Gray"];
     self.colorsComboBox.maxRows = self.colors.count;
     
+    self.languagesComboBox.layer.cornerRadius = 5.0f;
     self.languagesComboBox.layer.borderWidth = 0.5f;
     self.languagesComboBox.layer.borderColor = [UIColor colorWithWhite:0.5f alpha:0.5f].CGColor;
-    self.languagesComboBox.layer.cornerRadius = 5.0f;
+    self.languagesComboBox.cellLineColor = [UIColor colorWithWhite:0.5f alpha:0.1f];
+    self.languagesComboBox.clipsToBounds = YES;
     
+    self.colorsComboBox.layer.cornerRadius = 15.f;
     self.colorsComboBox.layer.borderWidth = 1.f;
     self.colorsComboBox.layer.borderColor = [UIColor blackColor].CGColor;
-    self.colorsComboBox.layer.cornerRadius = 15.f;
     self.colorsComboBox.clipsToBounds = YES;
 }
 
