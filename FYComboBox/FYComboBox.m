@@ -58,6 +58,7 @@
     self.cellHeight = 50.f;
     self.cellBackgroundColor = [UIColor whiteColor];
     self.cellTextColor = [UIColor blackColor];
+    self.cellTextFont = [UIFont preferredFontForTextStyle:UIFontTextStyleBody];
     self.cellLineColor = [UIColor clearColor];
     self.comboBackgroundColor = [UIColor clearColor];
     self.minimumWidth = CGFLOAT_MAX;
@@ -226,6 +227,7 @@
     
     cell.contentView.backgroundColor = self.cellBackgroundColor;
     cell.textLabel.textColor = self.cellTextColor;
+    cell.textLabel.font = self.cellTextFont;
     
     cell.textLabel.text = [self.delegate comboBox:self titleForRow:indexPath.row];
     

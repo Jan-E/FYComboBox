@@ -16,6 +16,8 @@
     self.languages = @[@"Objective-C", @"Swift", @"Python", @"C++", @"C"];
     self.languagesComboBox.maxRows = self.languages.count;
     
+    self.languagesComboBox.cellTextFont = [UIFont systemFontOfSize:13.0f];
+    
     self.colors = @[@"Red", @"Orange", @"Green", @"Blue", @"Yellow", @"Black", @"White", @"Gray"];
     self.colorsComboBox.maxRows = self.colors.count;
     
