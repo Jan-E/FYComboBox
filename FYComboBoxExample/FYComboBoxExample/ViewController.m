@@ -14,7 +14,10 @@
     [super viewDidLoad];
     
     self.languages = @[@"Objective-C", @"Swift", @"Python", @"C++", @"C"];
+    self.languagesComboBox.maxRows = self.languages.count;
+    
     self.colors = @[@"Red", @"Orange", @"Green", @"Blue", @"Yellow", @"Black", @"White", @"Gray"];
+    self.colorsComboBox.maxRows = self.colors.count;
     
     self.colorsComboBox.layer.borderWidth = 1.f;
     self.colorsComboBox.layer.borderColor = [UIColor blackColor].CGColor;
