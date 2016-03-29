@@ -23,6 +23,7 @@
     self.languagesComboBox.layer.borderWidth = 0.5f;
     self.languagesComboBox.layer.borderColor = [UIColor colorWithWhite:0.5f alpha:0.5f].CGColor;
     self.languagesComboBox.cellLineColor = [UIColor colorWithWhite:0.5f alpha:0.1f];
+    self.languagesComboBox.cellTextFont = [UIFont systemFontOfSize:13.0f];
     self.languagesComboBox.clipsToBounds = YES;
     
     self.colorsComboBox.layer.cornerRadius = 15.f;
