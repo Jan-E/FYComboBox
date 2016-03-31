@@ -71,7 +71,7 @@
 {
     NSInteger rows = [self.delegate comboBoxNumberOfRows:self];
     
-    CGFloat total = 0.0f;
+    CGFloat total = [self.delegate comboBox:self heightForRow:1]/2;
     
     for (int i = 0; i < maxRows && i < rows; i++) {
         if (self.delegate && [self.delegate respondsToSelector:@selector(comboBox:heightForRow:)]) {
