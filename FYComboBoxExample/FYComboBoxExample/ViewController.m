@@ -17,7 +17,7 @@
     self.languagesComboBox.maxRows = 10; //self.languages.count;
 
     self.colors = @[@"Red", @"Orange", @"Green", @"Blue", @"Yellow", @"Black", @"White", @"Gray"];
-    self.colorsComboBox.maxRows = 5; //self.colors.count;
+    self.colorsComboBox.maxRows = self.colors.count;
     
     self.languagesComboBox.layer.cornerRadius = 5.0f;
     self.languagesComboBox.layer.borderWidth = 0.5f;

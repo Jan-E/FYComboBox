@@ -89,9 +89,9 @@
     if (self.state == FYComboBoxStateClosed) {
         [self.tableView reloadData];
         
-        if ([self.delegate comboBoxNumberOfRows:self] > 0) {
-            [self.tableView scrollToRowAtIndexPath:[NSIndexPath indexPathForRow:0 inSection:0] atScrollPosition:UITableViewScrollPositionTop animated:NO];
-        }
+        //if ([self.delegate comboBoxNumberOfRows:self] > 0) {
+        //    [self.tableView scrollToRowAtIndexPath:[NSIndexPath indexPathForRow:0 inSection:0] atScrollPosition:UITableViewScrollPositionTop animated:NO];
+        //}
     }
     
     CGRect buttonFrame = self.button.frame;
