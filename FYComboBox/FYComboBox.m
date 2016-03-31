@@ -1,5 +1,40 @@
 #import "FYComboBox.h"
 
+#define noDisableVerticalScrollTag 836913
+#define noDisableHorizontalScrollTag 836914
+
+@implementation UIImageView (ForTableView)
+
+- (void) setAlpha:(float)alpha {
+    
+    if (self.superview.tag == noDisableVerticalScrollTag) {
+        if (alpha == 0 && self.autoresizingMask == UIViewAutoresizingFlexibleLeftMargin) {
+            if (self.frame.size.width < 10 && self.frame.size.height > self.frame.size.width) {
+                UITableView *sc = (UITableView*)self.superview;
+                if (sc.frame.size.height < sc.contentSize.height) {
+                    return;
+                }
+            }
+        }
+    }
+    
+    if (self.superview.tag == noDisableHorizontalScrollTag) {
+        if (alpha == 0 && self.autoresizingMask == UIViewAutoresizingFlexibleTopMargin) {
+            if (self.frame.size.height < 10 && self.frame.size.height < self.frame.size.width) {
+                UITableView *sc = (UITableView*)self.superview;
+                if (sc.frame.size.width < sc.contentSize.width) {
+                    return;
+                }
+            }
+        }
+    }
+    NSLog(@"Alpha  %f", alpha);
+    return;
+    //[super setAlpha:alpha];
+}
+
+@end
+
 @interface FYComboBox ()
 
 @property (nonatomic, strong) UIButton *button;
@@ -7,6 +42,12 @@
 @end
 
 @implementation FYComboBox
+
+- (void)viewDidAppear:(BOOL)animate
+{
+    NSLog(@"viewDidAppear");
+    [self.tableView flashScrollIndicators];
+}
 
 - (id)initWithCoder:(NSCoder *)aDecoder
 {

@@ -9,6 +9,14 @@
 
 @implementation ViewController
 
+- (void)viewDidAppear:(BOOL)animate
+{
+    NSLog(@"viewDidAppear");
+    [super viewDidAppear:animate];
+    [self.languagesComboBox.tableView flashScrollIndicators];
+    [self.colorsComboBox.tableView flashScrollIndicators];
+}
+
 - (void)viewDidLoad
 {
     [super viewDidLoad];
