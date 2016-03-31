@@ -7,29 +7,15 @@
 
 - (void) setAlpha:(float)alpha {
     
-    if (self.superview.tag == noDisableVerticalScrollTag) {
-        if (alpha == 0 && self.autoresizingMask == UIViewAutoresizingFlexibleLeftMargin) {
-            if (self.frame.size.width < 10 && self.frame.size.height > self.frame.size.width) {
-                UITableView *sc = (UITableView*)self.superview;
-                if (sc.frame.size.height < sc.contentSize.height) {
-                    return;
-                }
-            }
-        }
+    // http://stackoverflow.com/a/15613852
+    NSLog(@"alpha %f super.super %@ tag %ld", alpha, self.superview.superview, self.superview.superview.tag);
+    if (alpha == 0 && self.frame.size.width == 2.500000)
+    {
+        //if (self.superview.superview.tag == noDisableVerticalScrollTag)
+        //    [super setAlpha:1];
+        //else
+            return;
     }
-    
-    if (self.superview.tag == noDisableHorizontalScrollTag) {
-        if (alpha == 0 && self.autoresizingMask == UIViewAutoresizingFlexibleTopMargin) {
-            if (self.frame.size.height < 10 && self.frame.size.height < self.frame.size.width) {
-                UITableView *sc = (UITableView*)self.superview;
-                if (sc.frame.size.width < sc.contentSize.width) {
-                    return;
-                }
-            }
-        }
-    }
-    NSLog(@"alpha %f, super %@, 3rd %f", alpha, self.superview, self.frame.size.width);
-    if (alpha == 0 && self.frame.size.width == 2.500000) return;
     [super setAlpha:alpha];
 }
 
@@ -51,6 +37,7 @@
 - (id)initWithCoder:(NSCoder *)aDecoder
 {
     self = [super initWithCoder:aDecoder];
+    [self setTag:noDisableVerticalScrollTag];
     
     if (self) {
         [self setup];
@@ -62,6 +49,7 @@
 - (id)initWithFrame:(CGRect)frame
 {
     self = [super initWithFrame:frame];
+    [self setTag:noDisableVerticalScrollTag];
     
     if (self) {
         [self setup];
@@ -82,13 +70,13 @@
     [self addSubview:self.button];
     
     _tableView = [[UITableView alloc] initWithFrame:CGRectMake(0, CGRectGetHeight(self.frame), CGRectGetWidth(self.frame), 0) style:UITableViewStylePlain];
+    
     self.tableView.delegate = self;
     self.tableView.dataSource = self;
     self.tableView.backgroundColor = [UIColor clearColor];
     self.tableView.showsHorizontalScrollIndicator = NO;
     
     [self addSubview:self.tableView];
-    
     [self setDefaultValues];
 }
 
@@ -171,10 +159,10 @@
     int64_t delayInSeconds = self.animationShowDuration + 0.5;
     dispatch_time_t popTime = dispatch_time(DISPATCH_TIME_NOW, delayInSeconds * NSEC_PER_SEC);
     dispatch_after(popTime, dispatch_get_main_queue(), ^(void){
-        NSLog(@"flashScrollIndicators");
+        //NSLog(@"flashScrollIndicators");
         [self.tableView flashScrollIndicators];
     });
-    NSLog(@"end of openAnimated");
+    //NSLog(@"end of openAnimated");
 }
 
 - (void)closeAnimated:(BOOL)animated

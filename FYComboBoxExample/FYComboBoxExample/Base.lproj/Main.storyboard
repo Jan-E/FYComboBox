@@ -63,7 +63,7 @@
                                     <outlet property="delegate" destination="BYZ-38-t0r" id="4vc-LI-oQw"/>
                                 </connections>
                             </view>
-                            <view tag="836913" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Zgs-Ba-2B3" customClass="FYComboBox">
+                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Zgs-Ba-2B3" customClass="FYComboBox">
                                 <rect key="frame" x="220" y="86" width="181" height="31"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Select language" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Lki-c2-Kzx">
