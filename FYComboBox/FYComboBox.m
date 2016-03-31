@@ -28,9 +28,9 @@
             }
         }
     }
-    NSLog(@"Alpha  %f", alpha);
-    return;
-    //[super setAlpha:alpha];
+    NSLog(@"alpha %f, super %@, 3rd %f", alpha, self.superview, self.frame.size.width);
+    if (alpha == 0 && self.frame.size.width == 2.500000) return;
+    [super setAlpha:alpha];
 }
 
 @end
@@ -43,10 +43,9 @@
 
 @implementation FYComboBox
 
-- (void)viewDidAppear:(BOOL)animate
+- (NSString *)title
 {
-    NSLog(@"viewDidAppear FYComboBox");
-    [self.tableView flashScrollIndicators];
+    return @"FYComboBox";
 }
 
 - (id)initWithCoder:(NSCoder *)aDecoder
@@ -169,6 +168,13 @@
     } else {
         openBlock();
     }
+    int64_t delayInSeconds = self.animationShowDuration + 0.5;
+    dispatch_time_t popTime = dispatch_time(DISPATCH_TIME_NOW, delayInSeconds * NSEC_PER_SEC);
+    dispatch_after(popTime, dispatch_get_main_queue(), ^(void){
+        NSLog(@"flashScrollIndicators");
+        [self.tableView flashScrollIndicators];
+    });
+    NSLog(@"end of openAnimated");
 }
 
 - (void)closeAnimated:(BOOL)animated
