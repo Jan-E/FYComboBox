@@ -11,7 +11,7 @@
 
 - (void)viewDidAppear:(BOOL)animate
 {
-    NSLog(@"viewDidAppear");
+    NSLog(@"viewDidAppea viewControllerr");
     [super viewDidAppear:animate];
     [self.languagesComboBox.tableView flashScrollIndicators];
     [self.colorsComboBox.tableView flashScrollIndicators];

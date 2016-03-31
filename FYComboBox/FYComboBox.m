@@ -45,7 +45,7 @@
 
 - (void)viewDidAppear:(BOOL)animate
 {
-    NSLog(@"viewDidAppear");
+    NSLog(@"viewDidAppear FYComboBox");
     [self.tableView flashScrollIndicators];
 }
 
